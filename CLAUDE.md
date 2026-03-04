@@ -25,7 +25,15 @@ The Figma MCP connector available via Claude.ai does **not** carry over to Claud
 2. Go to **Security** → **Personal access tokens**
 3. Click **Generate new token**
 4. Give it a description (e.g. `Claude Code PoC`)
-5. Set scope: **File content** → Read-only is sufficient
+5. Grant the following scopes:
+
+| Scope | Access | Required |
+|---|---|---|
+| **File content** | Read | Yes — reads nodes, layout, and styling |
+| **File metadata** | Read | Yes — reads file name and structure |
+| **File comments** | Read | No — not used in this PoC |
+| **Variables** | Read | No — only needed if exporting Figma Variables as tokens |
+
 6. Copy the token immediately — it is only shown once
 
 ### 2. Create your local `.env`
@@ -37,11 +45,11 @@ cp .env.example .env
 
 ### 3. Configure Figma MCP in Claude Code
 
-The `.claude/settings.json` in this repo already references `FIGMA_ACCESS_TOKEN`. Claude Code will read it from your environment. Make sure the `.env` is loaded in your shell before starting Claude Code:
+The `.claude/settings.json` in this repo already wires the Figma MCP using `FIGMA_API_KEY` from your environment. On Windows, set the variable in your shell before launching Claude Code:
 
-```bash
-export $(cat .env | xargs)
-code .  # or however you launch Claude Code
+```powershell
+$env:FIGMA_API_KEY = "your_token_here"
+claude  # start Claude Code from the same shell
 ```
 
 ### 4. Install dependencies and run

@@ -1,7 +1,5 @@
+import { FileManagementPage } from "./pages/FileManagementPage";
+
 export default function App() {
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <p className="text-gray-500 text-sm">Figma PoC — scaffold ready</p>
-    </div>
-  )
+  return <FileManagementPage />;
 }

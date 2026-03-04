@@ -27,12 +27,17 @@ The Figma MCP connector available via Claude.ai does **not** carry over to Claud
 4. Give it a description (e.g. `Claude Code PoC`)
 5. Grant the following scopes:
 
-| Scope | Access | Required |
+| Category | Scope | Required |
 |---|---|---|
-| **File content** | Read | Yes — reads nodes, layout, and styling |
-| **File metadata** | Read | Yes — reads file name and structure |
-| **File comments** | Read | No — not used in this PoC |
-| **Variables** | Read | No — only needed if exporting Figma Variables as tokens |
+| **Files** | Read the contents of and render images from files | Yes |
+| **Files** | Read metadata of files | Yes |
+| **Files** | Read comments in accessible files | No |
+| **Files** | Create, modify, and delete comments in accessible files | No |
+| **Files** | Read version history of files | No |
+| **Design systems** | Read data about individual components and styles | No — useful if inspecting a component library |
+| **Development** | Read and list dev resources in accessible files | No |
+| **Projects** | Read team project structure | No |
+| **Webhooks** | Read and list webhooks | No |
 
 6. Copy the token immediately — it is only shown once
 
